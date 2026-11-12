@@ -18,7 +18,27 @@ const games = [
   { id: 'reaction-test', title: 'Reaction Time Test', desc: 'Wait for green, then click as fast as you can.', category: 'Arcade', icon: '⚡', color: '#f2d371', tip: 'Clicking before the signal counts as a false start.' },
   { id: 'connect-four', title: 'Connect Four', desc: 'Take turns and connect four tokens to win.', category: 'Multiplayer', icon: '🔴', color: '#ef8192', tip: 'Watch for threats in both directions before dropping your piece.' },
   { id: 'sudoku', title: 'Sudoku', desc: 'Fill the grid so every row, column, and box has 1–9.', category: 'Puzzle', icon: '▦', color: '#78d8c6', tip: 'A number can appear only once in each row, column, and 3×3 box.' },
-  { id: 'chess', title: 'Chess', desc: 'A local two-player match. Protect your king and think ahead.', category: 'Strategy', icon: '♟️', color: '#d3b1ff', tip: 'Select a piece to see its legal moves. Promotion, castling, and en passant are supported.' }
+  { id: 'chess', title: 'Chess', desc: 'A local two-player match. Protect your king and think ahead.', category: 'Strategy', icon: '♟️', color: '#d3b1ff', tip: 'Select a piece to see its legal moves. Promotion, castling, and en passant are supported.' },
+  { id: 'pac-man', title: 'Pac-Man', desc: 'Clear the maze, collect dots, and steer clear of the chasers.', category: 'Arcade', icon: '🟡', color: '#f4d36f', tip: 'Use arrow keys or the on-screen arrows. Each dot adds points.' },
+  { id: 'clicker', title: 'Clicker Champion', desc: 'Click for points and unlock stronger clicks at milestones.', category: 'Arcade', icon: '👆', color: '#7de2bd', tip: 'Every 50 clicks boosts your points per click. Milestones stack.' },
+  { id: 'space-invaders', title: 'Space Invaders', desc: 'Move, fire, and clear the descending alien fleet.', category: 'Arcade', icon: '👾', color: '#a18cff', tip: 'Move with the arrow keys and fire with Space.' },
+  { id: 'tetris', title: 'Tetris', desc: 'Fit the falling blocks together and clear complete rows.', category: 'Puzzle', icon: '🧩', color: '#75d9e8', tip: 'Use the arrow keys to move and rotate. Down speeds up the fall.' },
+  { id: 'lights-out', title: 'Lights Out', desc: 'Turn off every light by toggling tiles and their neighbors.', category: 'Puzzle', icon: '💡', color: '#f4cb69', tip: 'Each move flips the selected tile and the tiles beside it.' },
+  { id: 'wordle', title: 'Word Guess', desc: 'Crack the five-letter word in six guesses.', category: 'Brain Games', icon: '🔡', color: '#80d8a9', tip: 'Green letters are in the right spot; yellow letters belong elsewhere.' },
+  { id: 'mastermind', title: 'Code Breaker', desc: 'Deduce the hidden four-color code from the clues.', category: 'Puzzle', icon: '🔐', color: '#cf9aff', tip: 'Feedback shows correct colors and correct positions.' },
+  { id: 'battleship', title: 'Battleship', desc: 'Find and sink the hidden fleet on a compact grid.', category: 'Strategy', icon: '🚢', color: '#75bfee', tip: 'A hit is marked red. Clear the fleet to finish the round.' },
+  { id: 'reversi', title: 'Reversi', desc: 'Flip your opponent’s pieces and claim the most territory.', category: 'Strategy', icon: '⚫', color: '#c4b0ff', tip: 'Place a piece to bracket a line of your opponent’s pieces.' },
+  { id: 'nim', title: 'Nim', desc: 'Take one to three stones. Avoid taking the last one.', category: 'Strategy', icon: '🪨', color: '#e9aa7c', tip: 'Plan your turn so your opponent is left with the final stone.' },
+  { id: 'fifteen-puzzle', title: '15 Puzzle', desc: 'Slide numbered tiles into order with the empty space.', category: 'Puzzle', icon: '🔢', color: '#f4bd72', tip: 'Only tiles next to the empty space can move.' },
+  { id: 'fruit-catcher', title: 'Fruit Catcher', desc: 'Move your basket to catch fruit before it falls.', category: 'Arcade', icon: '🍎', color: '#f38b9b', tip: 'Use the left and right arrow keys or the on-screen buttons.' },
+  { id: 'maze-runner', title: 'Maze Runner', desc: 'Find your way through the maze and collect every star.', category: 'Puzzle', icon: '🌀', color: '#79d8c6', tip: 'Use arrow keys or the on-screen arrows to explore.' },
+  { id: 'bubble-pop', title: 'Bubble Pop', desc: 'Pop groups of matching bubbles to build your score.', category: 'Arcade', icon: '🫧', color: '#86c9ee', tip: 'Bigger matching groups earn more points.' },
+  { id: 'number-sequence', title: 'Sequence Solver', desc: 'Work out the pattern and enter the next number.', category: 'Brain Games', icon: '🧮', color: '#f0cb70', tip: 'Look for a repeated operation or a changing difference.' },
+  { id: 'dino-dash', title: 'Dino Dash', desc: 'Jump over obstacles and see how long you can run.', category: 'Arcade', icon: '🦖', color: '#91d78e', tip: 'Press Space, tap, or use the jump button to leap.' },
+  { id: 'color-match', title: 'Color Match', desc: 'Race the timer and tap the color named on screen.', category: 'Brain Games', icon: '🎨', color: '#e89fd3', tip: 'Read the word, not the color it is printed in.' },
+  { id: 'blackjack', title: 'Blackjack', desc: 'Get closer to 21 than the dealer without going over.', category: 'Strategy', icon: '🃏', color: '#84dbb7', tip: 'Aces count as 1 or 11. Stand when your hand is strong.' },
+  { id: 'treasure-hunt', title: 'Treasure Hunt', desc: 'Search the map for treasure while avoiding hidden traps.', category: 'Puzzle', icon: '🗺️', color: '#e7b66f', tip: 'The clues tell you how close you are to the treasure.' },
+  { id: 'quick-draw', title: 'Quick Draw', desc: 'Hit the target as it appears and score before time runs out.', category: 'Arcade', icon: '🎯', color: '#f28d84', tip: 'Stay focused: targets move to a new spot after each hit.' }
 ];
 
 const grid = document.querySelector('#game-grid');
@@ -116,6 +136,8 @@ function renderCards() {
     </article>`).join('');
   document.querySelector('#result-count').textContent = visible.length;
   document.querySelector('.category-tab[data-filter="All"] span').textContent = games.length;
+  document.querySelector('.hero-count').textContent = games.length;
+  document.querySelector('#game-footer-count').textContent = games.length;
   document.querySelector('#empty-state').hidden = visible.length > 0;
 }
 function startGame(id) {
@@ -167,7 +189,13 @@ function initGame(id) {
     breakout: initBreakout, '2048': init2048, minesweeper: initMinesweeper,
     simon: initSimon, 'word-scramble': initScramble, 'math-quiz': initMathQuiz,
     'typing-test': initTyping, 'reaction-test': initReaction, 'connect-four': initConnectFour,
-    sudoku: initSudoku, chess: initChess
+    sudoku: initSudoku, chess: initChess, 'pac-man': initExtraGame, clicker: initExtraGame,
+    'space-invaders': initExtraGame, tetris: initExtraGame, 'lights-out': initExtraGame,
+    wordle: initExtraGame, mastermind: initExtraGame, battleship: initExtraGame,
+    reversi: initExtraGame, nim: initExtraGame, 'fifteen-puzzle': initExtraGame,
+    'fruit-catcher': initExtraGame, 'maze-runner': initExtraGame, 'bubble-pop': initExtraGame,
+    'number-sequence': initExtraGame, 'dino-dash': initExtraGame, 'color-match': initExtraGame,
+    blackjack: initExtraGame, 'treasure-hunt': initExtraGame, 'quick-draw': initExtraGame
   };
   initializers[id]();
 }

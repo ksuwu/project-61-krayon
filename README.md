@@ -1,6 +1,6 @@
-# GameZone - 20 Games in One Place
+# GameZone - 40 Games in One Place
 
-A responsive, no-build browser arcade made with HTML, CSS, and vanilla JavaScript.
+A responsive, no-build browser arcade made with HTML, CSS, and vanilla JavaScript. It includes 40 mini-games, including Flappy Bird, Pac-Man, and a clicker with milestone power-ups.
 
 ## Run
 
