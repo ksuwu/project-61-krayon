@@ -224,7 +224,7 @@ function initGame(id) {
     'tower-defense': initBonusGame, 'penguin-slide': initBonusGame, 'bottle-flip': initBonusGame,
     'word-search': initBonusGame, 'connect-dots': initBonusGame
   };
-  initializers[id]();
+  initializers[id](id);
 }
 
 function initTicTacToe() {
