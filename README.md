@@ -2,6 +2,8 @@
 
 A responsive, no-build browser arcade made with HTML, CSS, and vanilla JavaScript. It includes 60 mini-games, including Flappy Bird, Pac-Man, and a clicker with milestone power-ups.
 
+Live site: https://ksuwu.github.io/project-61-krayon/
+
 ## Run
 
 Open `index.html` in a browser, or serve this folder with any static file server. No account, install, or API key is required.
