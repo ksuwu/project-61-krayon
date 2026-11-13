@@ -38,7 +38,27 @@ const games = [
   { id: 'color-match', title: 'Color Match', desc: 'Race the timer and tap the color named on screen.', category: 'Brain Games', icon: '🎨', color: '#e89fd3', tip: 'Read the word, not the color it is printed in.' },
   { id: 'blackjack', title: 'Blackjack', desc: 'Get closer to 21 than the dealer without going over.', category: 'Strategy', icon: '🃏', color: '#84dbb7', tip: 'Aces count as 1 or 11. Stand when your hand is strong.' },
   { id: 'treasure-hunt', title: 'Treasure Hunt', desc: 'Search the map for treasure while avoiding hidden traps.', category: 'Puzzle', icon: '🗺️', color: '#e7b66f', tip: 'The clues tell you how close you are to the treasure.' },
-  { id: 'quick-draw', title: 'Quick Draw', desc: 'Hit the target as it appears and score before time runs out.', category: 'Arcade', icon: '🎯', color: '#f28d84', tip: 'Stay focused: targets move to a new spot after each hit.' }
+  { id: 'quick-draw', title: 'Quick Draw', desc: 'Hit the target as it appears and score before time runs out.', category: 'Arcade', icon: '🎯', color: '#f28d84', tip: 'Stay focused: targets move to a new spot after each hit.' },
+  { id: 'trivia-quiz', title: 'Trivia Quiz', desc: 'Answer five quick questions across science, nature, and more.', category: 'Brain Games', icon: '❔', color: '#82c6ed', tip: 'Choose the best answer. Each correct answer earns a point.' },
+  { id: 'checkers', title: 'Checkers', desc: 'A local two-player match of diagonals, jumps, and kings.', category: 'Strategy', icon: '🔴', color: '#ec8c96', tip: 'Move diagonally. Jump over an opponent to capture a piece.' },
+  { id: 'typing-race', title: 'Typing Race', desc: 'Type each word correctly and race through the word list.', category: 'Brain Games', icon: '🏁', color: '#d49bdb', tip: 'Enter the displayed word exactly to score and advance.' },
+  { id: 'match-three', title: 'Match Three', desc: 'Swap neighboring gems to make rows of three or more.', category: 'Puzzle', icon: '💎', color: '#8bb6f2', tip: 'Only swaps that make a match are kept.' },
+  { id: 'color-flood', title: 'Color Flood', desc: 'Flood the board from the corner and claim every tile.', category: 'Puzzle', icon: '🌈', color: '#a894ef', tip: 'Pick the color that expands your connected region.' },
+  { id: 'color-lines', title: 'Color Lines', desc: 'Move matching orbs into lines of five to clear them.', category: 'Puzzle', icon: '🔵', color: '#70c8e0', tip: 'Select an orb, then an open neighboring square.' },
+  { id: 'rocket-launch', title: 'Rocket Launch', desc: 'Time each launch when the moving marker hits the target zone.', category: 'Arcade', icon: '🚀', color: '#f3bd75', tip: 'Press Launch when the marker is in the highlighted zone.' },
+  { id: 'basketball-shot', title: 'Basketball Shot', desc: 'Time your shots as the hoop moves across the court.', category: 'Arcade', icon: '🏀', color: '#e9a475', tip: 'Shoot when the moving hoop lines up with the target.' },
+  { id: 'coin-flip', title: 'Coin Flip Streak', desc: 'Call heads or tails and build a streak of correct calls.', category: 'Arcade', icon: '🪙', color: '#e7cc76', tip: 'Make ten calls. A correct guess earns one point.' },
+  { id: 'safe-cracker', title: 'Safe Cracker', desc: 'Crack the three-digit safe code using digit-position clues.', category: 'Puzzle', icon: '🔒', color: '#9ab8cf', tip: 'Feedback tells you how many digits are in the correct position.' },
+  { id: 'word-ladder', title: 'Word Ladder', desc: 'Turn CAT into DOG by changing one letter at a time.', category: 'Brain Games', icon: '🪜', color: '#90d4a9', tip: 'Every step must be a real word and change just one letter.' },
+  { id: 'spot-difference', title: 'Spot the Difference', desc: 'Find the hidden mismatches between two little picture grids.', category: 'Brain Games', icon: '🔍', color: '#e8a4c7', tip: 'Tap the matching position on the right-hand grid.' },
+  { id: 'golf-putt', title: 'Golf Putt', desc: 'Set your power and try to sink three putts.', category: 'Arcade', icon: '⛳', color: '#8ed6a9', tip: 'Match your swing power to the distance shown.' },
+  { id: 'pinball', title: 'Pinball', desc: 'Keep the ball in play with well-timed flipper taps.', category: 'Arcade', icon: '🎱', color: '#c69aff', tip: 'Tap the flipper when the ball reaches the lower lane.' },
+  { id: 'air-hockey', title: 'Air Hockey', desc: 'Tap the puck as it crosses the goal lane to score.', category: 'Arcade', icon: '🏒', color: '#7fd4e3', tip: 'Tap the puck only when it is close to the opponent’s goal.' },
+  { id: 'tower-defense', title: 'Tower Defense', desc: 'Place towers, stop the creeps, and protect your base.', category: 'Strategy', icon: '🏰', color: '#b5a0e9', tip: 'Place towers along the path; they automatically attack nearby creeps.' },
+  { id: 'penguin-slide', title: 'Penguin Slide', desc: 'Slide across the ice to collect fish and reach the exit.', category: 'Puzzle', icon: '🐧', color: '#a8d7e8', tip: 'You slide until a wall stops you, so plan each direction.' },
+  { id: 'bottle-flip', title: 'Bottle Flip', desc: 'Flip the bottle and land it upright on the platform.', category: 'Arcade', icon: '🧴', color: '#86d2b2', tip: 'Tap near the top of the flip for the best landing chance.' },
+  { id: 'word-search', title: 'Word Search', desc: 'Find the hidden word by selecting its letters in order.', category: 'Brain Games', icon: '🔎', color: '#83d7ca', tip: 'The target word runs across a row, forward or backward.' },
+  { id: 'connect-dots', title: 'Connect the Dots', desc: 'Trace the numbered path in the right order without mistakes.', category: 'Puzzle', icon: '🔗', color: '#eba6bc', tip: 'Click each numbered dot from 1 through 10.' }
 ];
 
 const grid = document.querySelector('#game-grid');
@@ -132,7 +152,7 @@ function renderCards() {
   grid.innerHTML = visible.map((game, index) => `
     <article class="game-card" style="--card-color:${game.color};animation-delay:${Math.min(index * 28, 240)}ms">
       <div class="card-art"><span class="card-index">${String(games.indexOf(game) + 1).padStart(2, '0')}</span><span class="card-category">${game.category}</span><span class="card-icon" aria-hidden="true">${game.icon}</span></div>
-      <div class="card-body"><div class="card-title-row"><h3 class="card-title">${game.title}</h3><span class="card-best">BEST ${bestFor(game.id)}</span></div><p class="card-desc">${game.desc}</p><div class="card-bottom"><button class="play-button" type="button" data-play="${game.id}">Play now <span aria-hidden="true">→</span></button><span class="card-meta">FREE TO PLAY</span></div></div>
+      <div class="card-body"><div class="card-title-row"><h3 class="card-title">${game.title}</h3></div><p class="card-desc">${game.desc}</p><div class="card-bottom"><button class="play-button" type="button" data-play="${game.id}">Play now <span aria-hidden="true">→</span></button><span class="card-meta">FREE TO PLAY</span></div></div>
     </article>`).join('');
   document.querySelector('#result-count').textContent = visible.length;
   document.querySelector('.category-tab[data-filter="All"] span').textContent = games.length;
@@ -195,7 +215,14 @@ function initGame(id) {
     reversi: initExtraGame, nim: initExtraGame, 'fifteen-puzzle': initExtraGame,
     'fruit-catcher': initExtraGame, 'maze-runner': initExtraGame, 'bubble-pop': initExtraGame,
     'number-sequence': initExtraGame, 'dino-dash': initExtraGame, 'color-match': initExtraGame,
-    blackjack: initExtraGame, 'treasure-hunt': initExtraGame, 'quick-draw': initExtraGame
+    blackjack: initExtraGame, 'treasure-hunt': initExtraGame, 'quick-draw': initExtraGame,
+    'trivia-quiz': initBonusGame, checkers: initBonusGame, 'typing-race': initBonusGame,
+    'match-three': initBonusGame, 'color-flood': initBonusGame, 'color-lines': initBonusGame,
+    'rocket-launch': initBonusGame, 'basketball-shot': initBonusGame, 'coin-flip': initBonusGame,
+    'safe-cracker': initBonusGame, 'word-ladder': initBonusGame, 'spot-difference': initBonusGame,
+    'golf-putt': initBonusGame, pinball: initBonusGame, 'air-hockey': initBonusGame,
+    'tower-defense': initBonusGame, 'penguin-slide': initBonusGame, 'bottle-flip': initBonusGame,
+    'word-search': initBonusGame, 'connect-dots': initBonusGame
   };
   initializers[id]();
 }
@@ -323,7 +350,11 @@ function initFlappy() {
   const canvas = document.createElement('canvas'); canvas.width = 480; canvas.height = 300; canvas.className = 'game-canvas'; canvas.setAttribute('aria-label', 'Flappy Bird game');
   mount(`<div class="game-stack"><div class="game-message">Click, tap, or press Space to flap</div><div id="flappy-holder"></div><div class="game-label">SPACE / TAP TO FLY</div></div>`); document.querySelector('#flappy-holder').append(canvas);
   const ctx = canvas.getContext('2d'); let birdY = 145, velocity = 0, pipes = [], frame = 0, alive = true, started = false;
-  function addPipe() { const top = 38 + Math.random() * 115; pipes.push({ x: canvas.width + 10, top, passed: false }); }
+  function addPipe() {
+    const gap = 108 + Math.random() * 40;
+    const top = 36 + Math.random() * (260 - gap - 36);
+    pipes.push({ x: canvas.width + 10, top, gap, passed: false });
+  }
   addPipe();
   function flap() { if (!alive) return; started = true; velocity = -5.8; beep(540, .045); }
   const clickHandler = () => flap(); canvas.addEventListener('pointerdown', clickHandler);
@@ -334,7 +365,7 @@ function initFlappy() {
     ctx.fillStyle = '#121a2a'; ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'rgba(147,154,207,.12)'; for (let i = 0; i < 9; i++) ctx.fillRect((i * 61 + 17) % canvas.width, (i * 37 + 25) % 115, 2, 2);
     ctx.fillStyle = '#27243a'; ctx.fillRect(0, 272, canvas.width, 28); ctx.fillStyle = '#8b77ab'; ctx.fillRect(0, 271, canvas.width, 2);
-    pipes.forEach(pipe => { ctx.fillStyle = '#69d3ae'; ctx.fillRect(pipe.x, 0, 43, pipe.top); ctx.fillRect(pipe.x, pipe.top + 88, 43, 272 - pipe.top - 88); ctx.fillStyle = '#469f84'; ctx.fillRect(pipe.x - 4, pipe.top - 9, 51, 9); ctx.fillRect(pipe.x - 4, pipe.top + 88, 51, 9); });
+    pipes.forEach(pipe => { ctx.fillStyle = '#69d3ae'; ctx.fillRect(pipe.x, 0, 43, pipe.top); ctx.fillRect(pipe.x, pipe.top + pipe.gap, 43, 272 - pipe.top - pipe.gap); ctx.fillStyle = '#469f84'; ctx.fillRect(pipe.x - 4, pipe.top - 9, 51, 9); ctx.fillRect(pipe.x - 4, pipe.top + pipe.gap, 51, 9); });
     ctx.fillStyle = '#ffdb76'; ctx.beginPath(); ctx.arc(93, birdY, 11, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#30202a'; ctx.beginPath(); ctx.arc(97, birdY - 2, 2, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#ff9b72'; ctx.fillRect(101, birdY, 9, 4);
     ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.font = '12px monospace'; ctx.fillText(`SCORE ${gameScore}`, 14, 21);
   }
@@ -342,7 +373,7 @@ function initFlappy() {
     if (!alive) return;
     frame++; if (started) { velocity += .28; birdY += velocity; pipes.forEach(pipe => pipe.x -= 2.3); if (frame % 110 === 0) addPipe(); pipes = pipes.filter(pipe => pipe.x > -55); }
     for (const pipe of pipes) {
-      if (pipe.x < 104 && pipe.x + 43 > 82 && (birdY - 10 < pipe.top || birdY + 10 > pipe.top + 88)) end();
+      if (pipe.x < 104 && pipe.x + 43 > 82 && (birdY - 10 < pipe.top || birdY + 10 > pipe.top + pipe.gap)) end();
       if (!pipe.passed && pipe.x + 43 < 82) { pipe.passed = true; addScore(); beep(680); }
     }
     if (birdY > 264 || birdY < 7) end(); draw();
