@@ -4,14 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101018">
-  <meta name="description" content="GameZone: sixty free mini-games for a quick challenge, a little learning, and a lot of fun.">
-  <title>GameZone | 60 Games in One Place</title>
+  <meta name="description" content="GameZone is currently empty of games.">
+  <title>GameZone | No Games</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="extra-games.js" defer></script>
-  <script src="bonus-games.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -23,8 +21,6 @@
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-link is-active" href="#home">Home</a>
-        <a class="nav-link" href="#games">All games</a>
-        <a class="nav-link" href="#games" data-category-link>Categories</a>
         <a class="nav-link" href="#about">About</a>
       </nav>
       <div class="header-tools">
@@ -42,37 +38,8 @@
           <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT HIGH SCORE STARTS HERE</p>
           <h1>Your Ultimate<br><span>Gaming Hub.</span></h1>
           <p class="hero-subtitle">Play. Explore. Challenge Yourself.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#games"><span>Explore games</span><span aria-hidden="true">↗</span></a>
-            <button class="button button-quiet random-game" type="button"><span class="dice-icon" aria-hidden="true">⚄</span> Surprise me</button>
-          </div>
-          <div class="hero-meta"><span class="hero-count">60</span><span class="hero-meta-rule"></span><span>FREE GAMES<br>ONE PLAYGROUND</span></div>
+          <div class="hero-meta"><span class="hero-count">0</span><span class="hero-meta-rule"></span><span>NO GAMES<br>AVAILABLE</span></div>
         </div>
-        <div class="hero-stamp" aria-hidden="true"><span>PRESS</span><b>PLAY</b><span>REPEAT</span></div>
-        <a class="scroll-cue" href="#games"><span></span> SCROLL TO PLAY</a>
-      </section>
-
-      <section class="games-section" id="games">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><span class="eyebrow-line"></span> THE ARCADE</p>
-            <h2>Pick your <span>next game.</span></h2>
-          </div>
-          <p class="section-note"><span id="result-count">60</span> games ready to play <span class="note-dot"></span></p>
-        </div>
-        <div class="game-toolbar">
-          <div class="category-tabs" role="group" aria-label="Filter games by category">
-            <button class="category-tab active" type="button" data-filter="All">All games <span>60</span></button>
-            <button class="category-tab" type="button" data-filter="Arcade">Arcade</button>
-            <button class="category-tab" type="button" data-filter="Puzzle">Puzzle</button>
-            <button class="category-tab" type="button" data-filter="Strategy">Strategy</button>
-            <button class="category-tab" type="button" data-filter="Brain Games">Brain games</button>
-            <button class="category-tab" type="button" data-filter="Multiplayer">Multiplayer</button>
-          </div>
-          <label class="search-box"><span aria-hidden="true">⌕</span><input id="game-search" type="search" placeholder="Find a game..." autocomplete="off"><kbd>/</kbd></label>
-        </div>
-        <div class="game-grid" id="game-grid" aria-live="polite"></div>
-        <div class="empty-state" id="empty-state" hidden><span>◌</span><h3>No games found</h3><p>Try another title or category.</p></div>
       </section>
 
       <section class="about-section" id="about">
@@ -93,35 +60,5 @@
     <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>game<span class="brand-accent">zone</span></span></a><span>Made with <span class="heart">♥</span> for learning and fun</span><a href="#home" class="back-top">BACK TO TOP ↑</a></footer>
   </div>
 
-  <div class="game-overlay" id="game-overlay" aria-hidden="true">
-    <div class="game-screen">
-      <header class="game-topbar">
-        <button class="back-button" id="back-to-games" type="button"><span aria-hidden="true">←</span> <span>All games</span></button>
-        <div class="game-brand"><span class="brand-mark mini" aria-hidden="true"><i></i><i></i><i></i><i></i></span> GAMEZONE <span class="game-brand-divider">/</span> <span id="screen-category">ARCADE</span></div>
-        <button class="screen-sound sound-toggle" type="button" aria-label="Mute sound" title="Mute sound"><span class="sound-icon" aria-hidden="true">♪</span></button>
-      </header>
-      <main class="game-main">
-        <div class="game-heading">
-          <div><p class="eyebrow"><span class="eyebrow-line"></span> NOW PLAYING</p><h1 id="screen-title">Game title</h1><p id="screen-description"></p></div>
-          <button class="restart-button" id="restart-game" type="button"><span aria-hidden="true">↻</span> Restart</button>
-        </div>
-        <div class="game-layout">
-          <section class="playfield" aria-label="Game area">
-            <div class="playfield-top"><span class="live-label"><i></i> IN SESSION</span><span id="screen-status" aria-live="polite">Let's play</span></div>
-            <div class="playfield-content" id="playfield-content"></div>
-          </section>
-          <aside class="score-panel">
-            <div class="score-block"><span class="panel-label">YOUR SCORE</span><strong id="screen-score">0</strong><span class="score-caption" id="score-caption">Points this round</span></div>
-            <div class="panel-divider"></div>
-            <div class="best-block"><span class="panel-label">PERSONAL BEST</span><strong id="screen-best">0</strong><span class="score-caption">Saved on this device</span></div>
-            <div class="panel-divider"></div>
-            <div class="timer-block"><span class="panel-label">TIME</span><strong id="screen-timer">00:00</strong><span class="score-caption" id="timer-caption">Time played</span></div>
-            <div class="panel-tip"><span aria-hidden="true">✳</span><p id="game-tip">Have fun and take your shot.</p></div>
-          </aside>
-        </div>
-      </main>
-      <footer class="game-footer"><span>GAMEZONE ARCADE</span><span><span id="game-footer-count">60</span> GAMES <i>·</i> ENDLESS REPLAY</span></footer>
-    </div>
-  </div>
 </body>
 </html>
